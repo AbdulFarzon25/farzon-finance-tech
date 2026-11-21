@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABDUL FARZON | Finance Operations, P2P &amp; Accounts Payable</title>
+  <meta name="description" content="Personal portfolio of Abdul Farzon, Finance Operations Executive specializing in Procure-to-Pay (P2P), Accounts Payable, Vendor Management, and Oracle Fusion Cloud." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-void: #050811;
+      --bg-surface: rgba(13, 20, 38, 0.62);
+      --bg-surface-hover: rgba(20, 31, 58, 0.82);
+      --bg-elevated: rgba(10, 16, 31, 0.92);
+      --border-hairline: rgba(148, 163, 184, 0.14);
+      --border-active: rgba(34, 211, 238, 0.36);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-dim: #64748b;
+      --accent-cyan: #22d3ee;
+      --accent-violet: #a78bfa;
+      --accent-mint: #34d399;
+      --gradient-flow: linear-gradient(135deg, #22d3ee 0%, #a78bfa 55%, #34d399 100%);
+      --gradient-pill: linear-gradient(135deg, rgba(34, 211, 238, 0.14), rgba(167, 139, 250, 0.12), rgba(52, 211, 153, 0.1));
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 11px;
+      --font-display: "Manrope", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --shadow-panel: 0 24px 54px -22px rgba(2, 6, 23, 0.88), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-variant-numeric: tabular-nums;
+      scroll-padding-top: 84px;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--text-primary);
+      background-color: var(--bg-void);
+      background-image:
+        radial-gradient(circle at 14% 12%, rgba(34, 211, 238, 0.11), transparent 42%),
+        radial-gradient(circle at 86% 18%, rgba(167, 139, 250, 0.11), transparent 44%),
+        radial-gradient(circle at 62% 84%, rgba(52, 211, 153, 0.07), transparent 46%),
+        linear-gradient(to bottom, #050811 0%, #070c18 52%, #050811 100%);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle architectural ledger grid */
+    .ledger-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 82% 72% at 50% 35%, #000 25%, transparent 90%);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, 92%);
+      margin-inline: auto;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 5.5rem 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-display);
+      letter-spacing: -0.025em;
+      margin-top: 0;
+      color: var(--text-primary);
+    }
+
+    p {
+      margin-top: 0;
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    a:hover {
+      color: #67e8f9;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-cyan);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: -9999px;
+      top: 12px;
+      z-index: 2000;
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-active);
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+    }
+
+    .skip-link:focus {
+      left: 16px;
+    }
+
+    /* Section Headers */
+    .section-header {
+      max-width: 680px;
+      margin-bottom: 3rem;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      margin-bottom: 0.65rem;
+    }
+
+    .section-eyebrow::before {
+      content: "";
+      width: 20px;
+      height: 1.5px;
+      background: var(--gradient-flow);
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.02rem;
+      margin-bottom: 0;
+    }
+
+    /* Glass Panels */
+    .glass-panel {
+      background: var(--bg-surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-panel);
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.28s ease,
+                  background 0.28s ease,
+                  box-shadow 0.28s ease;
+    }
+
+    .glass-panel:hover {
+      background: var(--bg-surface-hover);
+      border-color: var(--border-active);
+      transform: translateY(-3px);
+      box-shadow: 0 26px 56px -22px rgba(34, 211, 238, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(5, 8, 17, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 1.5rem;
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.96rem;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-monogram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: var(--gradient-pill);
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.25rem 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-primary);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-flow);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-hairline);
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 0 10px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      inset: 72px 0 0 0;
+      z-index: 890;
+      background: rgba(5, 8, 17, 0.97);
+      backdrop-filter: blur(20px);
+      padding: 2rem 6%;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .mobile-drawer a {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    /* Buttons */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.45rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.94rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--gradient-flow);
+      background-size: 180% 180%;
+      color: #041019;
+      box-shadow: 0 10px 28px -8px rgba(34, 211, 238, 0.45);
+      animation: gradientShift 8s ease infinite;
+    }
+
+    .btn-primary:hover {
+      color: #030b12;
+      box-shadow: 0 14px 34px -8px rgba(167, 139, 250, 0.52);
+    }
+
+    .btn-secondary {
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--text-primary);
+      border-color: rgba(148, 163, 184, 0.25);
+    }
+
+    .btn-secondary:hover {
+      color: var(--text-primary);
+      border-color: var(--accent-cyan);
+      background: rgba(30, 41, 59, 0.88);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border-color: var(--border-hairline);
+    }
+
+    .btn-ghost:hover {
+      color: var(--accent-mint);
+      border-color: rgba(52, 211, 153, 0.42);
+      background: rgba(52, 211, 153, 0.06);
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-mint);
+      margin-bottom: 0.85rem;
+      display: block;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.35rem, 4.8vw, 3.85rem);
+      font-weight: 800;
+      line-height: 1.08;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(125deg, #ffffff 10%, #bae6fd 48%, #c4b5fd 78%, #6ee7b7 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 60ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-indicators {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2rem;
+    }
+
+    .indicator-chip {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      background: rgba(15, 23, 42, 0.74);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 0.42rem 0.85rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .chip-node {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .indicator-chip:nth-child(2) .chip-node {
+      background: var(--accent-violet);
+      box-shadow: 0 0 8px var(--accent-violet);
+    }
+
+    .indicator-chip:nth-child(3) .chip-node {
+      background: var(--accent-mint);
+      box-shadow: 0 0 8px var(--accent-mint);
+    }
+
+    .indicator-chip:nth-child(4) .chip-node {
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    /* Orbital Graphic */
+    .orbital-stage {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1 / 1;
+      max-width: 420px;
+      width: 100%;
+      margin-inline: auto;
+    }
+
+    .orbital-aura {
+      position: absolute;
+      width: 72%;
+      height: 72%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.22), rgba(167, 139, 250, 0.14) 55%, transparent 72%);
+      filter: blur(24px);
+      pointer-events: none;
+    }
+
+    .orbital-network {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      pointer-events: none;
+    }
+
+    .ring-outer {
+      inset: 4%;
+      border-color: rgba(34, 211, 238, 0.22);
+      border-top-color: rgba(34, 211, 238, 0.78);
+      animation: orbitCW 26s linear infinite;
+    }
+
+    .ring-middle {
+      inset: 17%;
+      border-color: rgba(167, 139, 250, 0.22);
+      border-right-color: rgba(167, 139, 250, 0.8);
+      animation: orbitCCW 18s linear infinite;
+    }
+
+    .ring-inner {
+      inset: 30%;
+      border-style: dashed;
+      border-color: rgba(52, 211, 153, 0.3);
+      animation: orbitCW 34s linear infinite;
+    }
+
+    .orbit-dot {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .dot-cyan {
+      top: -5.5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-cyan);
+      box-shadow: 0 0 14px var(--accent-cyan);
+    }
+
+    .dot-violet {
+      top: 50%;
+      right: -5.5px;
+      transform: translateY(-50%);
+      background: var(--accent-violet);
+      box-shadow: 0 0 14px var(--accent-violet);
+    }
+
+    .af-monogram-hub {
+      position: relative;
+      z-index: 2;
+      width: 132px;
+      height: 132px;
+      border-radius: 36px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.94), rgba(9, 14, 26, 0.98));
+      border: 1px solid rgba(34, 211, 238, 0.42);
+      box-shadow:
+        0 0 42px rgba(34, 211, 238, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+      display: grid;
+      place-items: center;
+    }
+
+    .af-monogram-text {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      background: var(--gradient-flow);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .orbit-tag {
+      position: absolute;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid var(--border-hairline);
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .tag-top {
+      top: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--accent-cyan);
+    }
+
+    .tag-right {
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent-violet);
+    }
+
+    .tag-bottom {
+      bottom: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--accent-mint);
+    }
+
+    .tag-left {
+      left: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+    }
+
+    @keyframes orbitCW {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes orbitCCW {
+      to { transform: rotate(-360deg); }
+    }
+
+    /* About, Tech Stack & Education */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-card {
+      padding: 2rem;
+    }
+
+    .about-card p {
+      font-size: 1rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .side-stack {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .side-box {
+      padding: 1.5rem;
+    }
+
+    .side-box h3 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-cyan);
+      margin-bottom: 0.9rem;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-pill {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      background: rgba(30, 41, 59, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      padding: 0.38rem 0.72rem;
+      border-radius: 8px;
+    }
+
+    .edu-entry + .edu-entry {
+      margin-top: 0.9rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .edu-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: var(--text-primary);
+    }
+
+    .edu-detail {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    /* Expertise Section */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .expertise-card {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .expertise-index {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      letter-spacing: 0.08em;
+    }
+
+    .expertise-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+
+    .expertise-card p {
+      font-size: 0.9rem;
+      line-height: 1.58;
+      margin-bottom: 0;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      border-left: 1px solid rgba(34, 211, 238, 0.3);
+    }
+
+    .timeline-card {
+      position: relative;
+      padding: 2rem;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: -2.42rem;
+      top: 2.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 16px var(--accent-cyan);
+      border: 3px solid var(--bg-void);
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .timeline-role {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-org {
+      color: var(--accent-violet);
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .timeline-tag {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--accent-mint);
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.28);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+    }
+
+    .timeline-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      display: grid;
+      gap: 0.7rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .timeline-list strong {
+      color: var(--text-primary);
+    }
+
+    /* Impact / Case Studies */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.35rem;
+    }
+
+    .impact-card {
+      padding: 1.65rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .impact-metric {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 2.5vw, 2.05rem);
+      font-weight: 800;
+      line-height: 1.15;
+      background: var(--gradient-flow);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.45rem;
+    }
+
+    .impact-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .impact-card p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .attribution-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 0.28rem 0.65rem;
+      border-radius: 6px;
+      align-self: flex-start;
+    }
+
+    .notes-toggle {
+      background: transparent;
+      border: none;
+      color: var(--accent-cyan);
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 0.2rem 0;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .notes-toggle:hover {
+      color: var(--accent-mint);
+    }
+
+    .notes-panel {
+      margin-top: 0.65rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed rgba(148, 163, 184, 0.2);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .notes-panel[hidden] {
+      display: none;
+    }
+
+    /* Contact Section */
+    .contact-card {
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 2.25rem;
+      align-items: center;
+    }
+
+    .contact-items {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-row {
+      background: rgba(9, 14, 26, 0.78);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-value {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      word-break: break-word;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border-hairline);
+      padding: 2rem 0;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .ring-outer,
+      .ring-middle,
+      .ring-inner,
+      .btn-primary {
+        animation: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .glass-panel,
+      .btn,
+      .nav-links a::after {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .about-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .orbital-stage {
+        max-width: 310px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card,
+      .about-card,
+      .timeline-card {
+        padding: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ledger-grid" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- STICKY NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-brand">
+        <span class="nav-monogram" aria-hidden="true">AF</span>
+        <span>ABDUL FARZON</span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="desktop-nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <a href="#about" class="drawer-link">About</a>
+    <a href="#expertise" class="drawer-link">Expertise</a>
+    <a href="#experience" class="drawer-link">Experience</a>
+    <a href="#impact" class="drawer-link">Impact</a>
+    <a href="#contact" class="drawer-link">Contact</a>
+    <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" class="drawer-link" style="color: var(--accent-cyan);">View Resume (./resume.pdf)</a>
+  </div>
+
+  <main id="main-content">
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="hero-name">ABDUL FARZON</span>
+          <h1 class="hero-headline">Turning Finance Operations Into Flow State.</h1>
+          <p class="hero-copy">
+            Finance Operations professional focused on Procure-to-Pay, Accounts Payable, supplier payments, process controls and operational efficiency.
+          </p>
+
+          <div class="btn-row">
+            <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Resume</a>
+            <a href="#impact" class="btn btn-secondary">Explore My Work</a>
+            <a href="#contact" class="btn btn-ghost">Contact Me</a>
+          </div>
+
+          <div class="hero-indicators" aria-label="Expertise Indicators">
+            <span class="indicator-chip"><span class="chip-node"></span>Oracle Fusion Cloud</span>
+            <span class="indicator-chip"><span class="chip-node"></span>P2P</span>
+            <span class="indicator-chip"><span class="chip-node"></span>Accounts Payable</span>
+            <span class="indicator-chip"><span class="chip-node"></span>Vendor Operations</span>
+          </div>
+        </div>
+
+        <!-- ANIMATED ORBITAL GRAPHIC WITH AF MONOGRAM -->
+        <div class="orbital-stage" aria-hidden="true">
+          <div class="orbital-aura"></div>
+          <svg class="orbital-network" viewBox="0 0 400 400" fill="none">
+            <line x1="200" y1="36" x2="200" y2="134" stroke="rgba(34,211,238,0.18)" stroke-dasharray="3 4" />
+            <line x1="364" y1="200" x2="266" y2="200" stroke="rgba(167,139,250,0.18)" stroke-dasharray="3 4" />
+            <line x1="200" y1="364" x2="200" y2="266" stroke="rgba(52,211,153,0.18)" stroke-dasharray="3 4" />
+            <line x1="36" y1="200" x2="134" y2="200" stroke="rgba(148,163,184,0.16)" stroke-dasharray="3 4" />
+            <circle cx="200" cy="36" r="3" fill="#22d3ee" opacity="0.7" />
+            <circle cx="364" cy="200" r="3" fill="#a78bfa" opacity="0.7" />
+            <circle cx="200" cy="364" r="3" fill="#34d399" opacity="0.7" />
+            <circle cx="36" cy="200" r="3" fill="#94a3b8" opacity="0.6" />
+          </svg>
+          <div class="orbit-ring ring-outer">
+            <span class="orbit-dot dot-cyan"></span>
+          </div>
+          <div class="orbit-ring ring-middle">
+            <span class="orbit-dot dot-violet"></span>
+          </div>
+          <div class="orbit-ring ring-inner"></div>
+          <div class="af-monogram-hub">
+            <span class="af-monogram-text">AF</span>
+          </div>
+          <span class="orbit-tag tag-top">Oracle Fusion Cloud</span>
+          <span class="orbit-tag tag-right">P2P &amp; AP</span>
+          <span class="orbit-tag tag-bottom">Controls &amp; Recon</span>
+          <span class="orbit-tag tag-left">Vendor Ops</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION (INCLUDES TECH STACK & EDUCATION) -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">About</span>
+          <h2 class="section-title">Structured execution across supplier payments &amp; financial controls.</h2>
+          <p class="section-subtitle">
+            Hands-on Finance Operations experience supporting dependable workflows, accurate records, and clear cross-team coordination.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="glass-panel about-card reveal">
+            <p>
+              I am a Finance Operations Executive focused on end-to-end supplier payment workflows, invoice validation, advance payments, and prepayment closures within <strong>Oracle Fusion Cloud</strong>.
+            </p>
+            <p>
+              My day-to-day work emphasizes vendor coordination, structured reconciliation, discrepancy follow-ups, and cross-functional stakeholder management across Treasury, internal approvers, and operational teams so payment cycles remain accurate and controlled.
+            </p>
+          </article>
+
+          <div class="side-stack">
+            <article class="glass-panel side-box reveal">
+              <h3>Tech Stack</h3>
+              <div class="skill-pills">
+                <span class="skill-pill">Oracle Fusion Cloud</span>
+                <span class="skill-pill">SAP Concur</span>
+                <span class="skill-pill">Microsoft Excel</span>
+                <span class="skill-pill">Pivot Tables</span>
+                <span class="skill-pill">VLOOKUP</span>
+                <span class="skill-pill">XLOOKUP</span>
+                <span class="skill-pill">SQL</span>
+              </div>
+            </article>
+
+            <article class="glass-panel side-box reveal">
+              <h3>Education</h3>
+              <div class="edu-entry">
+                <div class="edu-title">BA English</div>
+                <div class="edu-detail">Utkal University, 2023</div>
+              </div>
+              <div class="edu-entry">
+                <div class="edu-title">PGDCA</div>
+                <div class="edu-detail">I Tech Computer, 2021</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE SECTION -->
+    <section id="expertise">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Expertise</span>
+          <h2 class="section-title">Core capabilities across P2P, payables &amp; governance.</h2>
+          <p class="section-subtitle">
+            Focused operational execution across requisition-to-settlement workflows, reconciliations, and stakeholder alignment.
+          </p>
+        </div>
+
+        <div class="expertise-grid">
+          <article class="glass-panel expertise-card reveal">
+            <span class="expertise-index">01</span>
+            <h3>Procure-to-Pay</h3>
+            <p>End-to-end PR-to-payment coordination aligned with approval workflows, SOP controls, and settlement tracking.</p>
+          </article>
+
+          <article class="glass-panel expertise-card reveal">
+            <span class="expertise-index">02</span>
+            <h3>Accounts Payable</h3>
+            <p>Supplier disbursement execution, payment status tracking, remittance coordination, and operational reporting.</p>
+          </article>
+
+          <article class="glass-panel expertise-card reveal">
+            <span class="expertise-index">03</span>
+            <h3>Oracle Fusion Cloud</h3>
+            <p>Operational execution across requisitions, purchase orders, invoices, and supplier payment workflows.</p>
+          </article>
+
+          <article class="glass-panel expertise-card reveal">
+            <span class="expertise-index">04</span>
+            <h3>Vendor Onboarding and Management</h3>
+            <p>Supporting vendor onboarding, documentation verification, and ongoing supplier coordination.</p>
+          </article>
+
+          <article class="glass-panel expertise-card reveal">
+            <span class="expertise-index">05</span>
+            <h3>Invoice Processing and 3-Way Verification</h3>
+            <p>Validating supporting records, PR/PO/receipt alignment, and invoice discrepancies prior to payment release.</p>
+          </article>
+
+          <article class="glass-panel expertise-card reveal">
+            <span class="expertise-index">06</span>
+            <h3>Corporate Card Reconciliation</h3>
+            <p>Matching corporate card records against supporting proofs and expense logs to resolve mismatches cleanly.</p>
+          </article>
+
+          <article class="glass-panel expertise-card reveal">
+            <span class="expertise-index">07</span>
+            <h3>Advance PO and Prepayment Closure</h3>
+            <p>Forecast-aligned Advance PO handling, advance tracking, and timely prepayment closure against settlements.</p>
+          </article>
+
+          <article class="glass-panel expertise-card reveal">
+            <span class="expertise-index">08</span>
+            <h3>Stakeholder Coordination and Process Training</h3>
+            <p>Partnering with Treasury, business teams, and approvers while training teammates on process workflows.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Experience</span>
+          <h2 class="section-title">Operational track record in high-volume environments.</h2>
+          <p class="section-subtitle">
+            Hands-on process execution across procurement coordination, payables, reconciliations, and reporting.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="glass-panel timeline-card reveal">
+            <span class="timeline-marker" aria-hidden="true"></span>
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Finance Operations Executive</h3>
+                <div class="timeline-org">Swiggy Limited (via CIEL HR Services)</div>
+              </div>
+              <span class="timeline-tag">Current Operational Role</span>
+            </div>
+
+            <ul class="timeline-list">
+              <li><strong>PR-to-Payment Coordination:</strong> Coordinated purchase requisitions, purchase orders, and supplier payment execution within defined approval workflows.</li>
+              <li><strong>Oracle Fusion Cloud Workflows:</strong> Worked within Oracle Fusion Cloud to support requisition, order, invoice, and payment processing accurately.</li>
+              <li><strong>Supplier Payments &amp; Advance Closures:</strong> Handled supplier payouts, advance POs, prepayment closures, and remittance follow-ups with structured tracking.</li>
+              <li><strong>Invoice Discrepancy Resolution:</strong> Investigated mismatches, missing details, and billing queries with stakeholders prior to payment settlement.</li>
+              <li><strong>Vendor Operations &amp; Treasury Alignment:</strong> Supported vendor onboarding, supplier issue resolution, and coordination with Treasury and internal approvers.</li>
+              <li><strong>Approval Workflows &amp; Operational Reporting:</strong> Maintained structured trackers, supported approval routing, and prepared operational status reports.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT / CASE STUDIES SECTION -->
+    <section id="impact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Impact &amp; Case Studies</span>
+          <h2 class="section-title">Measurable operational outcomes &amp; workflow improvements.</h2>
+          <p class="section-subtitle">
+            Expand any card to inspect workflow context and distinguish individual contributions from team or shared workflow outcomes.
+          </p>
+        </div>
+
+        <div class="impact-grid">
+          <article class="glass-panel impact-card reveal">
+            <div>
+              <div class="impact-metric">~<span class="kpi-counter" data-target="2">2</span>%</div>
+              <h3>Corporate Card Mismatch Rate</h3>
+              <p>Corporate card mismatch rate reduced to approximately 2%.</p>
+              <span class="attribution-badge">Individual Control + Stakeholder Follow-Up</span>
+            </div>
+            <div>
+              <button type="button" class="notes-toggle" aria-expanded="false">View Case Notes +</button>
+              <div class="notes-panel" hidden>
+                Tracked unmatched card items, followed up on missing supporting documentation, and aligned monthly reconciliation records with stakeholders.
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-panel impact-card reveal">
+            <div>
+              <div class="impact-metric"><span class="kpi-counter" data-target="50">50</span>+ Suppliers</div>
+              <h3>Advance PO Consolidation</h3>
+              <p>Advance PO consolidation covering 50+ suppliers.</p>
+              <span class="attribution-badge">Individual Execution + Forecast Input</span>
+            </div>
+            <div>
+              <button type="button" class="notes-toggle" aria-expanded="false">View Case Notes +</button>
+              <div class="notes-panel" hidden>
+                Consolidated recurring supplier requirements into Advance POs aligned with demand visibility and approval workflows.
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-panel impact-card reveal">
+            <div>
+              <div class="impact-metric"><span class="kpi-counter" data-target="1000">1,000</span>+ / mo</div>
+              <h3>Consolidated Invoice Workflow</h3>
+              <p>Supported a consolidated workflow involving 1,000+ monthly invoices.</p>
+              <span class="attribution-badge">Shared Workflow Contribution</span>
+            </div>
+            <div>
+              <button type="button" class="notes-toggle" aria-expanded="false">View Case Notes +</button>
+              <div class="notes-panel" hidden>
+                Supported consolidated invoice processing and validation across high-volume suppliers alongside team and approval stakeholders.
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-panel impact-card reveal">
+            <div>
+              <div class="impact-metric">~7d &rarr; Same Day</div>
+              <h3>Urgent Supplier Payment Turnaround</h3>
+              <p>Urgent supplier payment turnaround improved from approximately 7 days to same-day processing in qualifying cases, subject to Treasury release.</p>
+              <span class="attribution-badge">Workflow Readiness + Treasury Dependency</span>
+            </div>
+            <div>
+              <button type="button" class="notes-toggle" aria-expanded="false">View Case Notes +</button>
+              <div class="notes-panel" hidden>
+                Streamlined pre-payment readiness and approval handoffs for qualifying urgent requests; final payout timing remains subject to Treasury fund release.
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-panel impact-card reveal">
+            <div>
+              <div class="impact-metric"><span class="kpi-counter" data-target="200">200</span>+ Cases</div>
+              <h3>Vendor Onboarding Support</h3>
+              <p>Experience supporting 200+ vendor onboarding cases.</p>
+              <span class="attribution-badge">Individual &amp; Process Support</span>
+            </div>
+            <div>
+              <button type="button" class="notes-toggle" aria-expanded="false">View Case Notes +</button>
+              <div class="notes-panel" hidden>
+                Assisted with vendor documentation checks, onboarding coordination, and readiness for payment workflows.
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Contact</span>
+          <h2 class="section-title">Connect regarding Finance Operations opportunities.</h2>
+          <p class="section-subtitle">
+            Direct contact details, GitHub profile, and resume access for Procure-to-Pay, Accounts Payable, Vendor Management, and Finance Operations roles.
+          </p>
+        </div>
+
+        <div class="glass-panel contact-card reveal">
+          <div>
+            <h3>Direct Contact &amp; Resume</h3>
+            <p style="margin-bottom: 1.5rem;">
+              Reach out directly via email or phone, visit my GitHub profile, or download the resume PDF.
+            </p>
+            <div class="btn-row">
+              <a href="./resume.pdf" download="resume.pdf" class="btn btn-primary">Download Resume</a>
+              <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Open PDF</a>
+            </div>
+          </div>
+
+          <div class="contact-items">
+            <div class="contact-row">
+              <div>
+                <span class="contact-label">Email</span>
+                <a href="mailto:skabdulfarzon@gmail.com" class="contact-value">skabdulfarzon@gmail.com</a>
+              </div>
+              <button type="button" class="btn btn-ghost" id="copy-email-btn" style="padding: 0.45rem 0.8rem; font-size: 0.8rem;">Copy</button>
+            </div>
+
+            <div class="contact-row">
+              <div>
+                <span class="contact-label">Phone</span>
+                <a href="tel:+917205813319" class="contact-value">+91 7205813319</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div>
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/AbdulFarzon25" target="_blank" rel="noopener noreferrer" class="contact-value">https://github.com/AbdulFarzon25</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>&copy; <span id="footer-year">2026</span> Abdul Farzon. Finance Operations &amp; P2P Portfolio.</span>
+      <span>Static portfolio built for GitHub Pages.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Footer year
+      const yearEl = document.getElementById("footer-year");
+      if (yearEl) {
+        yearEl.textContent = String(Math.max(2026, new Date().getFullYear()));
+      }
+
+      // Mobile navigation drawer
+      const toggleBtn = document.getElementById("menu-toggle");
+      const drawer = document.getElementById("mobile-drawer");
+      const drawerLinks = document.querySelectorAll(".drawer-link");
+
+      function setDrawerOpen(open) {
+        if (!toggleBtn || !drawer) return;
+        toggleBtn.setAttribute("aria-expanded", String(open));
+        drawer.classList.toggle("open", open);
+      }
+
+      if (toggleBtn && drawer) {
+        toggleBtn.addEventListener("click", () => {
+          const isOpen = toggleBtn.getAttribute("aria-expanded") === "true";
+          setDrawerOpen(!isOpen);
+        });
+
+        drawerLinks.forEach((link) => {
+          link.addEventListener("click", () => setDrawerOpen(false));
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && drawer.classList.contains("open")) {
+            setDrawerOpen(false);
+            toggleBtn.focus();
+          }
+        });
+      }
+
+      // Expandable case notes
+      document.querySelectorAll(".notes-toggle").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const panel = btn.nextElementSibling;
+          if (!panel) return;
+          const expanded = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!expanded));
+          panel.hidden = expanded;
+          btn.textContent = expanded ? "View Case Notes +" : "Hide Case Notes -";
+        });
+      });
+
+      // Copy email button
+      const copyBtn = document.getElementById("copy-email-btn");
+      if (copyBtn) {
+        copyBtn.addEventListener("click", async () => {
+          const email = "skabdulfarzon@gmail.com";
+          try {
+            await navigator.clipboard.writeText(email);
+            copyBtn.textContent = "Copied";
+            setTimeout(() => {
+              copyBtn.textContent = "Copy";
+            }, 1800);
+          } catch {
+            copyBtn.textContent = email;
+          }
+        });
+      }
+
+      // Active section link highlight
+      const sections = document.querySelectorAll("main section[id]");
+      const navLinks = document.querySelectorAll("#desktop-nav a");
+
+      const updateActiveNav = () => {
+        let activeId = "";
+        sections.forEach((sec) => {
+          if (sec.getBoundingClientRect().top <= 140) {
+            activeId = sec.id;
+          }
+        });
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === "#" + activeId);
+        });
+      };
+
+      window.addEventListener("scroll", updateActiveNav, { passive: true });
+      updateActiveNav();
+
+      // Scroll reveal + KPI counters
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const revealItems = document.querySelectorAll(".reveal");
+
+      function runCounter(el) {
+        if (el.dataset.done) return;
+        el.dataset.done = "true";
+        const target = Number(el.dataset.target || "0");
+        if (prefersReducedMotion || !target) {
+          el.textContent = target.toLocaleString();
+          return;
+        }
+        const duration = 900;
+        const start = performance.now();
+        function frame(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target).toLocaleString();
+          if (progress < 1) {
+            requestAnimationFrame(frame);
+          }
+        }
+        requestAnimationFrame(frame);
+      }
+
+      if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("visible"));
+        document.querySelectorAll(".kpi-counter").forEach(runCounter);
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                entry.target.querySelectorAll(".kpi-counter").forEach(runCounter);
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        revealItems.forEach((item) => io.observe(item));
+      }
+    })();
+  </script>
+</body>
+</html>
